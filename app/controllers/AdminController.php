@@ -11,7 +11,7 @@ class AdminController extends Controller {
         session_start();
         $url = $_GET['url'] ?? '';
         if (!isset($_SESSION['admin_id']) && $url !== 'admin/login') {
-            header('Location: /HotelReservationSystemArmojallasRunes/public/admin/login');
+            header('Location: ' . URLROOT . '/admin/login');
             exit;
         }
     }
@@ -22,7 +22,7 @@ class AdminController extends Controller {
         
         if (isset($_GET['delete'])) {
             $resModel->delete($_GET['delete']);
-            header('Location: /HotelReservationSystemArmojallasRunes/public/admin/index?msg=deleted');
+            header('Location: ' . URLROOT . '/admin/index?msg=deleted');
             exit;
         }
 
@@ -38,7 +38,7 @@ class AdminController extends Controller {
 
     public function login() {
         if (isset($_SESSION['admin_id'])) {
-            header('Location: /HotelReservationSystemArmojallasRunes/public/admin/index');
+            header('Location: ' . URLROOT . '/admin/index');
             exit;
         }
 
@@ -49,7 +49,7 @@ class AdminController extends Controller {
             if ($user) {
                 $_SESSION['admin_id'] = $user['id'];
                 $_SESSION['admin_username'] = $user['username'];
-                header('Location: /HotelReservationSystemArmojallasRunes/public/admin/index');
+                header('Location: ' . URLROOT . '/admin/index');
                 exit;
             } else {
                 $data['error'] = "Invalid credentials.";
@@ -60,7 +60,7 @@ class AdminController extends Controller {
 
     public function logout() {
         session_destroy();
-        header('Location: /HotelReservationSystemArmojallasRunes/public/admin/login');
+        header('Location: ' . URLROOT . '/admin/login');
         exit;
     }
 
@@ -107,7 +107,7 @@ class AdminController extends Controller {
                 ], $billing));
 
                 if ($success) {
-                    header('Location: /HotelReservationSystemArmojallasRunes/public/admin/index?msg=added');
+                    header('Location: ' . URLROOT . '/admin/index?msg=added');
                     exit;
                 }
             }
@@ -119,7 +119,7 @@ class AdminController extends Controller {
         $resModel = $this->model('Reservation');
         $reservation = $resModel->getById($id);
         if (!$reservation) {
-            header('Location: /HotelReservationSystemArmojallasRunes/public/admin/index');
+            header('Location: ' . URLROOT . '/admin/index');
             exit;
         }
 
@@ -155,7 +155,7 @@ class AdminController extends Controller {
                 ], $billing));
 
                 if ($success) {
-                    header('Location: /HotelReservationSystemArmojallasRunes/public/admin/index?msg=updated');
+                    header('Location: ' . URLROOT . '/admin/index?msg=updated');
                     exit;
                 }
             }

@@ -4,7 +4,7 @@
     <p class="hero-sub">Welcome to</p>
     <h2 class="hero-title"><em>Darrel &amp; Ayien's</em><br>Five Star Hotel</h2>
     <p class="hero-sub" style="margin-bottom:28px;">Where Luxury Meets Perfection</p>
-    <a href="/HotelReservationSystemArmojallasRunes/public/reservation" class="hero-cta">Book Your Stay</a>
+    <a href="<?= URLROOT ?>/reservation" class="hero-cta">Book Your Stay</a>
 </div>
 
 <div class="section-label">Our Amenities</div>

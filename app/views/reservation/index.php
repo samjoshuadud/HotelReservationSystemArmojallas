@@ -57,8 +57,8 @@
     </div>
 
     <div class="btn-group">
-        <a href="/HotelReservationSystemArmojallasRunes/public/home" class="btn btn-primary">Home</a>
-        <a href="/HotelReservationSystemArmojallasRunes/public/reservation" class="btn btn-secondary">New Reservation</a>
+        <a href="<?= URLROOT ?>/home" class="btn btn-primary">Home</a>
+        <a href="<?= URLROOT ?>/reservation" class="btn btn-secondary">New Reservation</a>
     </div>
 
 <?php else: ?>
@@ -80,7 +80,7 @@
             <?= date('F d, Y') ?> &nbsp;@&nbsp; <?= date('g:i:s A') ?>
         </div>
 
-        <form method="POST" action="/HotelReservationSystemArmojallasRunes/public/reservation">
+        <form method="POST" action="<?= URLROOT ?>/reservation">
             <div class="form-grid">
                 <div class="form-group">
                     <label for="customer_name">Customer Name</label>

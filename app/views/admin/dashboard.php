@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard — Darrel & Ayien's Hotel</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/HotelReservationSystemArmojallasRunes/assets/css/style.css">
+    <link rel="stylesheet" href="<?= ASSETROOT ?>/css/style.css">
 </head>
 <body style="background:var(--cream); padding:0; margin:0;">
 
 <div class="admin-header">
     <div class="admin-title">⚙ Admin Panel &mdash; Hotel Reservation System</div>
     <div class="admin-nav">
-        <a href="/HotelReservationSystemArmojallasRunes/public/home">View Site</a>
-        <a href="/HotelReservationSystemArmojallasRunes/public/admin/logout">Logout (<?= htmlspecialchars($_SESSION['admin_username']) ?>)</a>
+        <a href="<?= URLROOT ?>/home">View Site</a>
+        <a href="<?= URLROOT ?>/admin/logout">Logout (<?= htmlspecialchars($_SESSION['admin_username']) ?>)</a>
     </div>
 </div>
 
@@ -45,13 +45,13 @@
     </div>
 
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
-        <form method="GET" action="/HotelReservationSystemArmojallasRunes/public/admin/index" style="display:flex; gap:8px;">
+        <form method="GET" action="<?= URLROOT ?>/admin/index" style="display:flex; gap:8px;">
             <input type="text" name="search" value="<?= htmlspecialchars($data['search']) ?>"
                    placeholder="Search by name or contact..." style="width:260px;">
             <button type="submit" class="btn btn-primary btn-sm">Search</button>
-            <?php if ($data['search']): ?><a href="/HotelReservationSystemArmojallasRunes/public/admin/index" class="btn btn-secondary btn-sm">Clear</a><?php endif; ?>
+            <?php if ($data['search']): ?><a href="<?= URLROOT ?>/admin/index" class="btn btn-secondary btn-sm">Clear</a><?php endif; ?>
         </form>
-        <a href="/HotelReservationSystemArmojallasRunes/public/admin/add" class="btn btn-primary btn-sm">+ Add Reservation</a>
+        <a href="<?= URLROOT ?>/admin/add" class="btn btn-primary btn-sm">+ Add Reservation</a>
     </div>
 
     <div class="card" style="padding:0; overflow:hidden;">
@@ -97,8 +97,8 @@
                             </td>
                             <td><strong>₱<?= number_format($r['total_bill'], 2) ?></strong></td>
                             <td>
-                                <a href="/HotelReservationSystemArmojallasRunes/public/admin/edit/<?= $r['id'] ?>" class="btn btn-secondary btn-sm">Edit</a>
-                                <a href="/HotelReservationSystemArmojallasRunes/public/admin/index?delete=<?= $r['id'] ?>"
+                                <a href="<?= URLROOT ?>/admin/edit/<?= $r['id'] ?>" class="btn btn-secondary btn-sm">Edit</a>
+                                <a href="<?= URLROOT ?>/admin/index?delete=<?= $r['id'] ?>"
                                    class="btn btn-danger btn-sm"
                                    onclick="return confirm('Delete this reservation?')">Del</a>
                             </td>

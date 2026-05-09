@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8"><title>Edit Reservation — Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/HotelReservationSystemArmojallasRunes/assets/css/style.css">
+    <link rel="stylesheet" href="<?= ASSETROOT ?>/css/style.css">
 </head>
 <body style="background:var(--cream);">
 <div class="admin-header">
     <div class="admin-title">⚙ Admin — Edit Reservation #<?= $data['formData']['id'] ?></div>
-    <div class="admin-nav"><a href="/HotelReservationSystemArmojallasRunes/public/admin/index">← Back to Dashboard</a></div>
+    <div class="admin-nav"><a href="<?= URLROOT ?>/admin/index">← Back to Dashboard</a></div>
 </div>
 <div class="admin-content" style="max-width:700px;">
     <?php if ($data['errors']): ?>
@@ -60,7 +60,7 @@
             </div>
             <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Save Changes</button>
-                <a href="/HotelReservationSystemArmojallasRunes/public/admin/index" class="btn btn-secondary">Cancel</a>
+                <a href="<?= URLROOT ?>/admin/index" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
